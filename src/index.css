@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+    color: transparent;
+  }
+  .text-stroke-sm {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+    color: transparent;
+  }
+  .text-stroke-oxblood {
+    -webkit-text-stroke: 1.5px #70020F;
+    color: transparent;
+  }
+  .text-stroke-thick {
+    -webkit-text-stroke: 2.5px rgba(255, 255, 255, 0.9);
+    color: transparent;
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Custom scrollbar for brutalist look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #70020f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9d0417;
+}
+
+/* Base styles */
+body {
+  background-color: #0a0a0a;
+  color: #f3f3f3;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #70020f;
+  selection-color: #ffffff;
+}
+
+::selection {
+  background: #70020f;
+  color: #ffffff;
+}
+
+/* Scanline effect optional class */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+}

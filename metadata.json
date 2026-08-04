@@ -1,0 +1,6 @@
+{
+  "name": "Kinetic Typography Portfolio",
+  "description": "High-impact kinetic typography portfolio featuring system boot sequence, 3D text reveals, and digital brutalist aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
