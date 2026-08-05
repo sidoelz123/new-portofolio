@@ -1,44 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { NoiseOverlay } from './components/NoiseOverlay';
-import { CustomCursor } from './components/CustomCursor';
-import { Preloader } from './components/Preloader';
-import { HeaderNav } from './components/HeaderNav';
-import { Hero } from './components/Hero';
-import { MarqueeStrip } from './components/MarqueeStrip';
-import { TypographyPlayground } from './components/TypographyPlayground';
-import { ProjectsSection } from './components/ProjectsSection';
-import { SkillsSection } from './components/SkillsSection';
-import { TerminalModal } from './components/TerminalModal';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
-import { CursorState, CursorContextType } from './types';
+import React, { useState, useEffect } from "react";
+import { NoiseOverlay } from "./components/NoiseOverlay";
+import { CustomCursor } from "./components/CustomCursor";
+import { Preloader } from "./components/Preloader";
+import { HeaderNav } from "./components/HeaderNav";
+import { Hero } from "./components/Hero";
+import { MarqueeStrip } from "./components/MarqueeStrip";
+import { TypographyPlayground } from "./components/TypographyPlayground";
+import { ProjectsSection } from "./components/ProjectsSection";
+import { SkillsSection } from "./components/SkillsSection";
+import { TerminalModal } from "./components/TerminalModal";
+import { ContactSection } from "./components/ContactSection";
+import { Footer } from "./components/Footer";
+import { CursorState, CursorContextType } from "./types";
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [cursorState, setCursorState] = useState<CursorState>({
-    text: '',
-    context: 'DEFAULT',
+    text: "",
+    context: "DEFAULT",
     isHovered: false,
   });
 
-  const setCursor = (text: string, context: CursorContextType = 'DEFAULT', isHovered: boolean = false) => {
+  const setCursor = (
+    text: string,
+    context: CursorContextType = "DEFAULT",
+    isHovered: boolean = false,
+  ) => {
     setCursorState({ text, context, isHovered });
   };
 
   // Keyboard shortcut listener for terminal ~ or ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === '`' || e.key === '~') {
+      if (e.key === "`" || e.key === "~") {
         e.preventDefault();
         setTerminalOpen((prev) => !prev);
-      } else if (e.key === 'Escape' && terminalOpen) {
+      } else if (e.key === "Escape" && terminalOpen) {
         setTerminalOpen(false);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [terminalOpen]);
 
   return (
@@ -53,10 +57,7 @@ export default function App() {
       <Preloader onComplete={() => setIsLoaded(true)} />
 
       {/* App Header */}
-      <HeaderNav
-        onOpenTerminal={() => setTerminalOpen(true)}
-        onSetCursor={setCursor}
-      />
+      <HeaderNav onOpenTerminal={() => setTerminalOpen(true)} onSetCursor={setCursor} />
 
       {/* Hero Section with Staggered 3D Text Reveal */}
       <Hero
@@ -68,12 +69,12 @@ export default function App() {
       {/* Marquee Strip Direction Left */}
       <MarqueeStrip
         items={[
-          'FULLSTACK DEVELOPER',
-          'KINETIC TYPOGRAPHY',
-          'DIGITAL BRUTALISM',
-          'SUB-18MS LATENCY',
-          'IHZA MAULANA ZAKIYA',
-          'HIGH THROUGHPUT ARCHITECTURE',
+          "FULLSTACK DEVELOPER",
+          "KINETIC TYPOGRAPHY",
+          "DIGITAL BRUTALISM",
+          "SUB-18MS LATENCY",
+          "IHZA MAULANA ZAKIYA",
+          "HIGH THROUGHPUT ARCHITECTURE",
         ]}
         direction="left"
         speed={0.5}
@@ -87,14 +88,14 @@ export default function App() {
       {/* Marquee Strip Direction Right with Stroked Text */}
       <MarqueeStrip
         items={[
-          'AETHER OS / WEBGL',
-          'VANGUARD / FINTECH',
-          'MONOLITH / BRAND EXPERIENCE',
-          'SYSTEM BOOT OK',
-          '01001001 01001000 01011010 01000001',
+          "AETHER OS / WEBGL",
+          "VANGUARD / FINTECH",
+          "MONOLITH / BRAND EXPERIENCE",
+          "SYSTEM BOOT OK",
+          "01001001 01001000 01011010 01000001",
         ]}
         direction="right"
-        speed={2}
+        speed={0.5}
         bgClass="bg-neutral-950 text-white"
         textClass="font-extrabold text-2xl sm:text-4xl tracking-tighter uppercase text-stroke"
       />
@@ -109,10 +110,7 @@ export default function App() {
       <ContactSection onSetCursor={setCursor} />
 
       {/* Monospaced Brutalist Footer */}
-      <Footer
-        onSetCursor={setCursor}
-        onOpenTerminal={() => setTerminalOpen(true)}
-      />
+      <Footer onSetCursor={setCursor} onOpenTerminal={() => setTerminalOpen(true)} />
 
       {/* Interactive Terminal Modal */}
       <TerminalModal
