@@ -28,14 +28,55 @@ export interface SkillCategory {
 
 export interface SystemLog {
   timestamp: string;
-  type: 'INFO' | 'SUCCESS' | 'WARN' | 'EXEC';
+  type: "INFO" | "SUCCESS" | "WARN" | "EXEC";
   message: string;
 }
 
-export type CursorContextType = 'DEFAULT' | 'VIEW' | 'OPEN' | 'EMAIL' | 'LAUNCH' | 'EXPLORE' | 'COPY' | 'TERMINAL';
+export type CursorContextType =
+  | "DEFAULT"
+  | "VIEW"
+  | "OPEN"
+  | "EMAIL"
+  | "LAUNCH"
+  | "EXPLORE"
+  | "COPY"
+  | "TERMINAL";
 
 export interface CursorState {
   text: string;
   context: CursorContextType;
   isHovered: boolean;
+}
+
+export interface ExperienceItem {
+  id: string;
+  role: string;
+  company: string;
+  employment_type: string;
+  period: string;
+  description: string[];
+}
+
+export interface EducationItem {
+  id: string;
+  degree: string;
+  institution: string;
+  period: string;
+}
+
+export interface AchievementItem {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  link: string;
+}
+
+export interface SystemPing {
+  host: string;
+  bytes: number;
+  seq: number;
+  ttl: number;
+  latency: string;
+  status: string;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Project } from '../types';
-import { ArrowUpRight, Cpu, Layers } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -9,14 +9,27 @@ interface ProjectCardProps {
   onSetCursor: (text: string, context: any, isHovered: boolean) => void;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, onSetCursor }) => {
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+export const ProjectCard: React.FC<ProjectCardProps> = React.memo(({ project, onSelect, onSetCursor }) => {
   return (
     <motion.div
+      variants={itemVariants}
       onClick={() => onSelect(project)}
       onMouseEnter={() => onSetCursor('EXPLORE', 'VIEW', true)}
       onMouseLeave={() => onSetCursor('', 'DEFAULT', false)}
-      whileHover={{ y: -6 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+      whileHover={{ y: -6, scale: 1.01 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
       className="group cursor-pointer bg-neutral-950 border border-white/10 hover:border-[#70020F] transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden"
     >
       {/* Background Hover Oxblood Accent Glow */}
@@ -69,4 +82,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, onS
       </div>
     </motion.div>
   );
-};
+});
+
+ProjectCard.displayName = 'ProjectCard';
+

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import {
   motion,
   useScroll,
@@ -18,7 +18,7 @@ interface MarqueeStripProps {
   textClass?: string;
 }
 
-export const MarqueeStrip: React.FC<MarqueeStripProps> = ({
+export const MarqueeStrip: React.FC<MarqueeStripProps> = React.memo(({
   items,
   direction = 'left',
   speed = 2,
@@ -64,8 +64,10 @@ export const MarqueeStrip: React.FC<MarqueeStripProps> = ({
 
   // Repeat items inside each set to ensure full screen coverage,
   // then duplicate the set twice (set1 and set2) for exact -50% seamless loop.
-  const repeatedSet = items.length < 4 ? [...items, ...items, ...items] : [...items, ...items];
-  const fullTrack = [...repeatedSet, ...repeatedSet];
+  const fullTrack = useMemo(() => {
+    const repeatedSet = items.length < 4 ? [...items, ...items, ...items] : [...items, ...items];
+    return [...repeatedSet, ...repeatedSet];
+  }, [items]);
 
   return (
     <div className={`overflow-hidden py-4 border-y border-white/20 select-none ${bgClass}`}>
@@ -81,5 +83,8 @@ export const MarqueeStrip: React.FC<MarqueeStripProps> = ({
       </motion.div>
     </div>
   );
-};
+});
+
+MarqueeStrip.displayName = 'MarqueeStrip';
+
 

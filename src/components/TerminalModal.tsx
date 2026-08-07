@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PERSONAL_INFO, PROJECTS } from '../data/portfolio';
-import { Terminal, X, CornerDownLeft, Sparkles, Send } from 'lucide-react';
+import {
+  PERSONAL_INFO,
+  PROJECTS,
+  SKILL_CATEGORIES,
+  EXPERIENCES,
+  EDUCATION_DATA,
+  ACHIEVEMENTS,
+  SYSTEM_PING,
+} from '../data/portfolio';
+import { Terminal, X } from 'lucide-react';
 
 interface TerminalModalProps {
   isOpen: boolean;
@@ -21,7 +29,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
       cmd: 'init',
       output: (
         <div className="text-neutral-300">
-          <p className="text-[#70020F] font-bold">SYSTEM TERMINAL [IHZA MAULANA ZAKIYA CLI v4.0]</p>
+          <p className="text-[#70020F] font-bold">SYSTEM TERMINAL [DEV CLI v4.0]</p>
           <p className="text-neutral-400">Type <span className="text-white font-bold">'help'</span> for available commands or <span className="text-white font-bold">'clear'</span> to wipe screen.</p>
         </div>
       ),
@@ -55,12 +63,14 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
         outputNode = (
           <div className="space-y-1 text-neutral-300">
             <p className="text-white font-bold">AVAILABLE COMMANDS:</p>
-            <p><span className="text-[#70020F] font-bold">about</span> - Display Ihza Maulana Zakiya biography & stats</p>
+            <p><span className="text-[#70020F] font-bold">about</span> - Display {PERSONAL_INFO.name} biography & stats</p>
             <p><span className="text-[#70020F] font-bold">projects</span> - List all featured engineering projects</p>
             <p><span className="text-[#70020F] font-bold">skills</span> - Display fullstack technical matrix</p>
+            <p><span className="text-[#70020F] font-bold">experience</span> - Display work experience history</p>
+            <p><span className="text-[#70020F] font-bold">education</span> - Display academic background</p>
+            <p><span className="text-[#70020F] font-bold">achievement</span> - Display achievements & certifications</p>
             <p><span className="text-[#70020F] font-bold">contact</span> - Get direct email & social handles</p>
             <p><span className="text-[#70020F] font-bold">ping</span> - Measure system latency response</p>
-            <p><span className="text-[#70020F] font-bold">matrix</span> - Execute digital brutalism stream</p>
             <p><span className="text-[#70020F] font-bold">clear</span> - Clear terminal buffer</p>
             <p><span className="text-[#70020F] font-bold">exit</span> - Close terminal window</p>
           </div>
@@ -99,9 +109,54 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
         outputNode = (
           <div className="space-y-2">
             <p className="text-white font-bold">TECHNICAL MATRIX:</p>
-            <p><strong className="text-[#70020F]">Frontend:</strong> TypeScript, React 19, Next.js, Motion, WebGL/Three.js, Tailwind v4</p>
-            <p><strong className="text-[#70020F]">Backend:</strong> Node.js, Express, PostgreSQL, Redis, WebSockets, Firebase</p>
-            <p><strong className="text-[#70020F]">DevOps:</strong> Docker, GCP Cloud Run, GitHub Actions, Performance Optimization</p>
+            {SKILL_CATEGORIES.map((cat) => (
+              <p key={cat.code}>
+                <strong className="text-[#70020F]">{cat.title}:</strong>{' '}
+                {cat.skills.map((s) => s.name).join(', ')}
+              </p>
+            ))}
+          </div>
+        );
+        break;
+
+      case 'experience':
+        outputNode = (
+          <div className="space-y-2">
+            <p className="text-white font-bold">WORK EXPERIENCE:</p>
+            {EXPERIENCES.map((exp) => (
+              <div key={exp.id} className="border-l-2 border-[#70020F] pl-3 py-1 text-neutral-300">
+                <p className="text-white font-bold">{exp.role} @ {exp.company} <span className="text-[#70020F]">({exp.period})</span></p>
+                <p className="text-neutral-400 text-xs">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        );
+        break;
+
+      case 'education':
+        outputNode = (
+          <div className="space-y-2">
+            <p className="text-white font-bold">ACADEMIC BACKGROUND:</p>
+            {EDUCATION_DATA.map((edu) => (
+              <div key={edu.id} className="border-l-2 border-[#70020F] pl-3 py-1 text-neutral-300">
+                <p className="text-white font-bold">{edu.degree} — {edu.institution}</p>
+                <p className="text-[#70020F] text-xs font-mono">{edu.period}</p>
+              </div>
+            ))}
+          </div>
+        );
+        break;
+
+      case 'achievement':
+        outputNode = (
+          <div className="space-y-2">
+            <p className="text-white font-bold">ACHIEVEMENTS & CERTIFICATIONS:</p>
+            {ACHIEVEMENTS.map((ach) => (
+              <div key={ach.id} className="border-l-2 border-[#70020F] pl-3 py-1 text-neutral-300">
+                <p className="text-white font-bold">{ach.title}</p>
+                <p className="text-neutral-400 text-xs">{ach.issuer} ({ach.year})</p>
+              </div>
+            ))}
           </div>
         );
         break;
@@ -111,8 +166,11 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
           <div className="space-y-2 text-neutral-300">
             <p className="text-white font-bold">DIRECT CONTACT PIPELINE:</p>
             <p>EMAIL: <a href={`mailto:${PERSONAL_INFO.email}`} className="text-[#70020F] font-bold underline">{PERSONAL_INFO.email}</a></p>
-            <p>GITHUB: @ihzamaulana</p>
-            <p>LINKEDIN: ihzamaulanaz</p>
+            {PERSONAL_INFO.socials.map((social) => (
+              <p key={social.label}>
+                {social.label}: <a href={social.url} target="_blank" rel="noopener noreferrer" className="text-[#70020F] font-bold underline">{social.handle}</a>
+              </p>
+            ))}
           </div>
         );
         break;
@@ -120,19 +178,8 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
       case 'ping':
         outputNode = (
           <div className="text-green-400">
-            <p>PONG! 64 bytes from antigravity.cloud: icmp_seq=1 ttl=58 time=12.4 ms</p>
-            <p>System status: 100% OPERATIONAL</p>
-          </div>
-        );
-        break;
-
-      case 'matrix':
-        outputNode = (
-          <div className="text-green-400 font-mono text-[11px] leading-tight select-none">
-            <p>01001001 01001000 01011010 01000001 00100000 01001101 01000001 01000101</p>
-            <p>01010011 01010100 01010010 01001111 00100000 01001011 01001001 01001110</p>
-            <p>01000101 01010100 01010011 01000011 00100000 01010100 01011001 01010000</p>
-            <p className="text-white mt-1">✓ MATRIX DECODED: IHZA MAULANA ZAKIYA KINETIC ENGINE</p>
+            <p>PONG! {SYSTEM_PING.bytes} bytes from {SYSTEM_PING.host}: icmp_seq={SYSTEM_PING.seq} ttl={SYSTEM_PING.ttl} time={SYSTEM_PING.latency}</p>
+            <p>System status: {SYSTEM_PING.status}</p>
           </div>
         );
         break;
@@ -181,7 +228,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
             <div className="flex items-center gap-2">
               <Terminal className="w-4 h-4 text-[#70020F]" />
               <span className="font-bold tracking-wider text-white">
-                IHZA_MAULANA_CLI_TERMINAL.EXE
+                DEV_CLI_TERMINAL.EXE
               </span>
             </div>
 
@@ -200,7 +247,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
             {history.map((item, idx) => (
               <div key={idx} className="space-y-1">
                 <div className="flex items-center gap-2 text-neutral-400">
-                  <span className="text-[#70020F] font-bold">ihzamaulana@antigravity:~$</span>
+                  <span className="text-[#70020F] font-bold">ihzamaulana@dev:~$</span>
                   <span className="text-white font-bold">{item.cmd}</span>
                 </div>
                 <div className="pl-4">{item.output}</div>
@@ -211,7 +258,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({ isOpen, onClose, o
 
           {/* Command Input Form */}
           <form onSubmit={handleCommand} className="bg-neutral-950 border-t border-white/10 p-3 flex items-center gap-2">
-            <span className="text-[#70020F] font-bold pl-2">ihzamaulana@antigravity:~$</span>
+            <span className="text-[#70020F] font-bold pl-2">ihzamaulana@dev:~$</span>
             <input
               ref={inputRef}
               type="text"
