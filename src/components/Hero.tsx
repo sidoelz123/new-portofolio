@@ -152,7 +152,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onSetCursor, onOpenTermina
           </span>
         </div>
 
-        <div className="flex items-center gap-4 text-neutral-400">
+        <div className="hidden md:flex items-center gap-4 text-neutral-400">
           <button
             onClick={triggerGlitch}
             onMouseEnter={() => onSetCursor("GLITCH", "VIEW", true)}
@@ -202,7 +202,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onSetCursor, onOpenTermina
                     variants={letterVariants}
                     onMouseEnter={() => setActiveLetter(10 + index)}
                     onMouseLeave={() => setActiveLetter(null)}
-                    className={`inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-extrabold tracking-tighter leading-none text-stroke transition-transform hover:scale-110 hover:-translate-y-2 hover:text-white ${
+                    className={`inline-block text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] md:font-extrabold tracking-tighter leading-none text-stroke transition-transform hover:scale-110 hover:-translate-y-2 hover:text-white ${
                       activeLetter === 10 + index ? "text-white" : ""
                     }`}
                   >
@@ -249,7 +249,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onSetCursor, onOpenTermina
           >
             {/* Animated Role Characters */}
             <div className="flex flex-wrap items-center gap-x-1.5 font-mono text-xl sm:text-2xl md:text-3xl font-extrabold text-neutral-300">
-              <span className="text-[#70020F] font-bold mr-2">&gt;&gt;</span>
+              <span className="hidden md:block text-[#70020F] font-bold mr-2">&gt;&gt;</span>
               {roleLetters.map((char, i) => (
                 <span
                   key={i}

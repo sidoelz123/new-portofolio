@@ -62,7 +62,8 @@ export const EducationSection: React.FC<EducationSectionProps> = React.memo(({ o
               <span className="font-bold tracking-widest">// 05. EDUCATION</span>
             </div>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white uppercase">
-              ACADEMIC & <span className="text-stroke">EDUCATION</span>
+              ACADEMIC &{" "}
+              <span className="text-stroke font-medium md:font-extrabold">EDUCATION</span>
             </h2>
           </div>
 

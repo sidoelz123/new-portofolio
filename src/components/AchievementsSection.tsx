@@ -63,7 +63,8 @@ export const AchievementsSection: React.FC<AchievementsSectionProps> = React.mem
                 <span className="font-bold tracking-widest">// 06. ACHIEVEMENTS</span>
               </div>
               <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white uppercase">
-                HONORS & <span className="text-stroke">ACHIEVEMENTS</span>
+                HONORS &{" "}
+                <span className="text-stroke font-medium md:font-extrabold">ACHIEVEMENTS</span>
               </h2>
             </div>
 

@@ -126,7 +126,7 @@ ${cat.skills.map((s) => `  - ${s.name} (${s.tag})`).join("\n")}`,
               variants={itemVariants}
               className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white uppercase"
             >
-              WORK & <span className="text-stroke">EXPERIENCE</span>
+              WORK & <span className="text-stroke font-medium md:font-extrabold">EXPERIENCE</span>
             </motion.h2>
           </div>
 
@@ -166,18 +166,37 @@ ${cat.skills.map((s) => `  - ${s.name} (${s.tag})`).join("\n")}`,
                   <span className="text-white group-hover:text-[#70020F] transition-colors">
                     {exp.role}
                   </span>
-                  <span className="text-[#70020F]">di</span>
+                  <span className="text-[#70020F]">at</span>
                   <span className="text-neutral-200">{exp.company}</span>
                 </div>
-
-                <div className="text-xs font-bold text-[#70020F] bg-[#70020F]/10 px-3 py-1 border border-[#70020F]/30 shrink-0 self-start md:self-auto">
-                  {exp.period}
+                <div className="flex flex-col-reverse items-start gap-2 shrink-0 self-start md:self-auto font-mono text-xs">
+                  <span className="font-bold text-neutral-400 bg-white/5 px-2.5 py-1 border border-white/10 uppercase">
+                    {exp.employment_type}
+                  </span>
+                  <span className="font-bold text-[#70020F] bg-[#70020F]/10 px-3 py-1 border border-[#70020F]/30">
+                    {exp.period}
+                  </span>
                 </div>
+                {/*   <div className="text-xs font-bold text-[#70020F] bg-[#70020F]/10 px-3 py-1 border border-[#70020F]/30 shrink-0 self-start md:self-auto"> */}
+                {/*     {exp.period} */}
+                {/*   </div> */}
               </div>
 
-              <p className="text-neutral-300 text-sm leading-relaxed max-w-4xl font-sans">
-                {exp.description}
-              </p>
+              {/* <p className="text-neutral-300 text-sm leading-relaxed max-w-4xl font-sans"> */}
+              {/*   {exp.description} */}
+              {/* </p> */}
+              <ol className="space-y-2.5 max-w-4xl">
+                {exp.description.map((bullet, bulletIdx) => (
+                  <li key={bulletIdx} className="flex items-start gap-3">
+                    <span className="font-mono text-xs font-bold text-[#70020F] shrink-0 pt-0.5 select-none">
+                      {String(bulletIdx + 1).padStart(2, "0")}.
+                    </span>
+                    <span className="text-neutral-300 text-sm leading-relaxed font-sans">
+                      {bullet}
+                    </span>
+                  </li>
+                ))}
+              </ol>
             </motion.div>
           ))}
 

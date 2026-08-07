@@ -1,10 +1,10 @@
-import React, { useState, useCallback } from 'react';
-import { motion } from 'motion/react';
-import { PROJECTS } from '../data/portfolio';
-import { Project } from '../types';
-import { ProjectCard } from './ProjectCard';
-import { ProjectModal } from './ProjectModal';
-import { Folder } from 'lucide-react';
+import React, { useState, useCallback } from "react";
+import { motion } from "motion/react";
+import { PROJECTS } from "../data/portfolio";
+import { Project } from "../types";
+import { ProjectCard } from "./ProjectCard";
+import { ProjectModal } from "./ProjectModal";
+import { Folder } from "lucide-react";
 
 interface ProjectsSectionProps {
   onSetCursor: (text: string, context: any, isHovered: boolean) => void;
@@ -44,7 +44,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = React.memo(({ onS
   }, []);
 
   return (
-    <section id="work" className="py-24 px-4 sm:px-8 bg-[#0a0a0a] border-t border-white/10 relative">
+    <section
+      id="work"
+      className="py-24 px-4 sm:px-8 bg-[#0a0a0a] border-t border-white/10 relative"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -60,12 +63,13 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = React.memo(({ onS
               <span className="font-bold tracking-widest">// 02. FEATURED WORK</span>
             </div>
             <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white uppercase">
-              SELECTED <span className="text-stroke">PROJECTS</span>
+              SELECTED <span className="text-stroke font-medium md:font-extrabold">PROJECTS</span>
             </h2>
           </div>
 
           <p className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed">
-            High-impact systems engineered for zero-compromise performance, low latency, and visceral digital aesthetics.
+            High-impact systems engineered for zero-compromise performance, low latency, and
+            visceral digital aesthetics.
           </p>
         </motion.div>
 
@@ -98,6 +102,4 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = React.memo(({ onS
   );
 });
 
-ProjectsSection.displayName = 'ProjectsSection';
-
-
+ProjectsSection.displayName = "ProjectsSection";

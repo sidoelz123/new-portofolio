@@ -68,11 +68,23 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({ onOpenTerminal, onSetCurso
   }, []);
 
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    // const el = document.getElementById(id);
+    // if (el) {
+    //   el.scrollIntoView({ behavior: "smooth" });
+    // }
     setIsMenuOpen(false);
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const headerOffset = 76;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: "smooth",
+        });
+      }
+    }, 60);
   };
 
   const getNavClass = (id: string) => {
@@ -168,7 +180,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({ onOpenTerminal, onSetCurso
               onClick={() => setIsMenuOpen((prev) => !prev)}
               onMouseEnter={() => onSetCursor(isMenuOpen ? "CLOSE" : "MENU", "VIEW", true)}
               onMouseLeave={() => onSetCursor("", "DEFAULT", false)}
-              className="flex lg:hidden items-center justify-center p-1.5 bg-neutral-900 hover:bg-[#70020F] text-white transition-colors border border-white/20 cursor-pointer"
+              className="hidden md:flex lg:hidden items-center justify-center p-1.5 bg-neutral-900 hover:bg-[#70020F] text-white transition-colors border border-white/20 cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
               {isMenuOpen ? (

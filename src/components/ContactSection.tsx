@@ -60,7 +60,7 @@ const SOCIAL_MEDIA_CARDS = [
     handle: "@sidoelz123",
     url: "https://github.com/sidoelz123",
     icon: Github,
-    tag: "// CODE ARCHITECTURE & REPOS",
+    tag: "// CODE REPOS",
     status: "ACTIVE COMMITTER",
   },
   {
@@ -78,109 +78,22 @@ const SOCIAL_MEDIA_CARDS = [
     handle: "@ijaa212",
     url: "https://instagram.com/ijaa212",
     icon: Instagram,
-    tag: "// KINETIC TECH DISPATCH",
+    tag: "// SOCIAL MEDIA",
     status: "DAILY LOGS",
   },
 ];
 
 export const ContactSection: React.FC<ContactSectionProps> = React.memo(({ onSetCursor }) => {
   const [copied, setCopied] = useState(false);
-  // const [formSubmitted, setFormSubmitted] = useState(false);
-  // const [formData, setFormData] = useState(() => {
-  //   try {
-  //     const saved = localStorage.getItem(FORM_STORAGE_KEY);
-  //     if (saved) {
-  //       const parsed = JSON.parse(saved);
-  //       return {
-  //         name: parsed.name || '',
-  //         email: parsed.email || '',
-  //         brief: parsed.brief || '',
-  //       };
-  //     }
-  //   } catch {
-  //     // fallback if localStorage is disabled/restricted
-  //   }
-  //   return {
-  //     name: '',
-  //     email: '',
-  //     brief: '',
-  //   };
-  // });
-
-  // useEffect(() => {
-  //   try {
-  //     localStorage.setItem(FORM_STORAGE_KEY, JSON.stringify(formData));
-  //   } catch {
-  //     // ignore write errors
-  //   }
-  // }, [formData]);
 
   const handleCopyEmail = useCallback(() => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }, []);
-
-  // const handleSubmit = useCallback((e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (!formData.name || !formData.email) return;
-  //   setFormSubmitted(true);
-  //   try {
-  //     localStorage.removeItem(FORM_STORAGE_KEY);
-  //   } catch {
-  //     // ignore
-  //   }
-  // }, [formData.name, formData.email]);
-
-  const handleDownloadCV = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    const cvContent = `================================================================
-IHZA MAULANA ZAKIYA - FULLSTACK DEVELOPER
-================================================================
-Email: ${PERSONAL_INFO.email}
-Location: ${PERSONAL_INFO.location}
-Status: ${PERSONAL_INFO.status}
-GitHub: https://github.com/sidoelz123
-LinkedIn: https://linkedin.com/in/ihzamz
-
-----------------------------------------------------------------
-SUMMARY
-----------------------------------------------------------------
-${PERSONAL_INFO.bio}
-
-----------------------------------------------------------------
-WORK EXPERIENCE
-----------------------------------------------------------------
-${EXPERIENCES.map(
-  (exp) => `* ${exp.role} @ ${exp.company} (${exp.period})
-  ${exp.description}`,
-).join("\n\n")}
-
-----------------------------------------------------------------
-EDUCATION
-----------------------------------------------------------------
-${EDUCATION_DATA.map((edu) => `* ${edu.degree} - ${edu.institution} (${edu.period})`).join("\n")}
-
-----------------------------------------------------------------
-TECHNICAL SKILLS
-----------------------------------------------------------------
-${SKILL_CATEGORIES.map(
-  (cat) => `[${cat.title}]
-${cat.skills.map((s) => `  - ${s.name} (${s.tag})`).join("\n")}`,
-).join("\n\n")}
-================================================================
-`;
-
-    const blob = new Blob([cvContent], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "Ihza_Maulana_Zakiya_CV.txt";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  }, []);
+  const handleDownloadCV = () => {
+    window.open(PERSONAL_INFO.document_cv, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <section
@@ -206,7 +119,7 @@ ${cat.skills.map((s) => `  - ${s.name} (${s.tag})`).join("\n")}`,
             onMouseLeave={() => onSetCursor("", "DEFAULT", false)}
             className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white uppercase leading-none select-none hover:text-[#70020F] transition-colors"
           >
-            INITIATE <span className="text-stroke">CONTACT</span>
+            INITIATE <span className="text-stroke font-medium md:font-extrabold">CONTACT</span>
           </h2>
         </motion.div>
 

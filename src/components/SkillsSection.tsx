@@ -76,7 +76,8 @@ export const SkillsSection: React.FC<SkillsSectionProps> = React.memo(({ onSetCu
               variants={itemVariants}
               className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white uppercase"
             >
-              CAPABILITIES & <span className="text-stroke">STACK</span>
+              CAPABILITIES &{" "}
+              <span className="text-stroke font-medium md:font-extrabold">STACK</span>
             </motion.h2>
           </div>
 

@@ -14,6 +14,7 @@ export const PERSONAL_INFO = {
   currently: "Open To Work",
   role: "Fullstack Developer",
   headline: "FULLSTACK DEVELOPER",
+  document_cv: "https://drive.google.com/file/d/1RN-KQ__uwGb_F4lTZtgVdyiFlueqoUd2/view?usp=sharing",
   subHeadline:
     "ARCHITECTING HIGH-PERFORMANCE WEB SYSTEMS, KINETIC INTERFACES & SCALABLE INFRASTRUCTURE",
   location: "GLOBAL / REMOTE",
