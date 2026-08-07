@@ -50,56 +50,9 @@ const itemVariants = {
 };
 
 export const ExperienceSection: React.FC<ExperienceSectionProps> = React.memo(({ onSetCursor }) => {
-  const handleDownloadCV = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    const cvContent = `================================================================
-IHZA MAULANA ZAKIYA - FULLSTACK DEVELOPER
-================================================================
-Email: ${PERSONAL_INFO.email}
-Location: ${PERSONAL_INFO.location}
-Status: ${PERSONAL_INFO.status}
-GitHub: https://github.com/sidoelz123
-LinkedIn: https://linkedin.com/in/ihzamz
-
-----------------------------------------------------------------
-SUMMARY
-----------------------------------------------------------------
-${PERSONAL_INFO.bio}
-
-----------------------------------------------------------------
-WORK EXPERIENCE
-----------------------------------------------------------------
-${EXPERIENCES.map(
-  (exp) => `* ${exp.role} @ ${exp.company} (${exp.period})
-  ${exp.description}`,
-).join("\n\n")}
-
-----------------------------------------------------------------
-EDUCATION
-----------------------------------------------------------------
-${EDUCATION_DATA.map((edu) => `* ${edu.degree} - ${edu.institution} (${edu.period})`).join("\n")}
-
-----------------------------------------------------------------
-TECHNICAL SKILLS
-----------------------------------------------------------------
-${SKILL_CATEGORIES.map(
-  (cat) => `[${cat.title}]
-${cat.skills.map((s) => `  - ${s.name} (${s.tag})`).join("\n")}`,
-).join("\n\n")}
-================================================================
-`;
-
-    const blob = new Blob([cvContent], { type: "text/plain;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "Ihza_Maulana_Zakiya_CV.txt";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  }, []);
-
+  const handleDownloadCV = () => {
+    window.open(PERSONAL_INFO.document_cv, "_blank", "noopener,noreferrer");
+  };
   return (
     <section
       id="experience"
@@ -169,7 +122,7 @@ ${cat.skills.map((s) => `  - ${s.name} (${s.tag})`).join("\n")}`,
                   <span className="text-[#70020F]">at</span>
                   <span className="text-neutral-200">{exp.company}</span>
                 </div>
-                <div className="flex flex-col-reverse items-start gap-2 shrink-0 self-start md:self-auto font-mono text-xs">
+                <div className="flex flex-col md:flex-col-reverse items-start gap-2 shrink-0 self-start md:self-auto font-mono text-xs">
                   <span className="font-bold text-neutral-400 bg-white/5 px-2.5 py-1 border border-white/10 uppercase">
                     {exp.employment_type}
                   </span>
@@ -227,7 +180,7 @@ ${cat.skills.map((s) => `  - ${s.name} (${s.tag})`).join("\n")}`,
               className="w-full md:w-auto px-8 py-4 bg-[#70020F] hover:bg-[#8a0313] text-white font-extrabold text-xs uppercase tracking-wider border border-white/20 flex items-center justify-center gap-3 shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_rgba(255,255,255,0.2)] transition-all cursor-pointer shrink-0"
             >
               <Download className="w-4 h-4" />
-              <span>DOWNLOAD RESUME [PDF/TXT]</span>
+              <span>DOWNLOAD RESUME</span>
               <ArrowUpRight className="w-4 h-4" />
             </motion.button>
           </motion.div>

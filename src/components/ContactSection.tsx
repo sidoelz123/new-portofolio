@@ -205,7 +205,7 @@ export const ContactSection: React.FC<ContactSectionProps> = React.memo(({ onSet
               >
                 <div className="flex items-center gap-3">
                   <Download className="w-4 h-4 text-[#70020F] group-hover:text-white transition-colors" />
-                  <span>DOWNLOAD FULL CV [TXT / PROFILE]</span>
+                  <span>DOWNLOAD FULL CV</span>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </motion.button>
@@ -218,9 +218,6 @@ export const ContactSection: React.FC<ContactSectionProps> = React.memo(({ onSet
               <span className="text-neutral-400 text-[11px] font-bold uppercase tracking-widest flex items-center gap-2">
                 <Sparkles className="w-3.5 h-3.5 text-[#70020F]" />
                 <span>CONNECT ACROSS NETWORKS</span>
-              </span>
-              <span className="text-[#70020F] font-bold text-[10px] hidden sm:inline">
-                [ HOVER TO REVEAL SPECS ]
               </span>
             </div>
 
