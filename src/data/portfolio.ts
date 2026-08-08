@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "mini-quiz",
-    number: "03",
+    number: "02",
     title: "Mini Quiz",
     subtitle: "Randomized Brutalist Quiz Platform",
     category: "Quiz Platform",
@@ -116,7 +116,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "harvest-guard",
-    number: "02",
+    number: "03",
     title: "Harvest Guard",
     subtitle: "Farm Security & Wildlife Detection System",
     category: " Farm Security / Detection System",
@@ -143,34 +143,34 @@ export const PROJECTS: Project[] = [
     imageSeed: "harvest-guard-security-system",
     accentColor: "#EA580C",
   },
-  {
-    id: "monolith-brand",
-    number: "03",
-    title: "Monolith",
-    subtitle: "Digital Brand Experience & Kinetic Platform",
-    category: "Brand Experience / Kinetic Web",
-    year: "2024",
-    description:
-      "An immersive digital flagship experience for an architectural luxury brand combining brutalist kinetic typography with physics scroll.",
-    extendedDescription:
-      "Monolith pushes typographic expression to its physical limits. Engineered with Framer Motion, custom scroll velocity clamping, matrix transforms, and WebGPU image distortion filters, the site transforms brutalist minimalism into a hypnotic, tactile experience.",
-    tags: ["React", "Motion", "Kinetic Typography", "WebGPU", "Node.js", "Tailwind CSS"],
-    metrics: [
-      { label: "CONVERSION INCREASE", value: "+340%" },
-      { label: "AVG DWELL TIME", value: "4m 12s" },
-      { label: "LIGHTHOUSE SCORE", value: "100 / 100" },
-    ],
-    architecture: [
-      "Inertia-clamped Scroll Velocity Hook Engine",
-      "DOM Matrix Transform Optimization for 60fps Mobile Performance",
-      "Server-Driven CMS with Incremental Static Regeneration",
-      "Custom Variable Font Axis Animation Controllers",
-    ],
-    demoUrl: "https://example.com/monolith",
-    githubUrl: "https://github.com/ihzamaulana/monolith",
-    imageSeed: "monolith-architecture-branding",
-    accentColor: "#70020F",
-  },
+  // {
+  //   id: "pet-care",
+  //   number: "04",
+  //   title: "Pet-care",
+  //   subtitle: "Digital Brand Experience & Kinetic Platform",
+  //   category: "Brand Experience / Kinetic Web",
+  //   year: "2024",
+  //   description:
+  //     "An immersive digital flagship experience for an architectural luxury brand combining brutalist kinetic typography with physics scroll.",
+  //   extendedDescription:
+  //     "Monolith pushes typographic expression to its physical limits. Engineered with Framer Motion, custom scroll velocity clamping, matrix transforms, and WebGPU image distortion filters, the site transforms brutalist minimalism into a hypnotic, tactile experience.",
+  //   tags: ["React", "Motion", "Kinetic Typography", "WebGPU", "Node.js", "Tailwind CSS"],
+  //   metrics: [
+  //     { label: "CONVERSION INCREASE", value: "+340%" },
+  //     { label: "AVG DWELL TIME", value: "4m 12s" },
+  //     { label: "LIGHTHOUSE SCORE", value: "100 / 100" },
+  //   ],
+  //   architecture: [
+  //     "Inertia-clamped Scroll Velocity Hook Engine",
+  //     "DOM Matrix Transform Optimization for 60fps Mobile Performance",
+  //     "Server-Driven CMS with Incremental Static Regeneration",
+  //     "Custom Variable Font Axis Animation Controllers",
+  //   ],
+  //   demoUrl: "https://example.com/monolith",
+  //   githubUrl: "https://github.com/ihzamaulana/monolith",
+  //   imageSeed: "monolith-architecture-branding",
+  //   accentColor: "#70020F",
+  // },
 ];
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
