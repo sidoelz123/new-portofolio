@@ -68,9 +68,9 @@ export const AchievementsSection: React.FC<AchievementsSectionProps> = React.mem
               </h2>
             </div>
 
-            <p className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed">
-              Recognitions, competition awards, and professional technical certifications.
-            </p>
+            {/* <p className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed"> */}
+            {/*   Recognitions, competition awards, and professional technical certifications. */}
+            {/* </p> */}
           </motion.div>
 
           {/* Achievements List */}

@@ -67,10 +67,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = React.memo(({ onS
             </h2>
           </div>
 
-          <p className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed">
-            High-impact systems engineered for zero-compromise performance, low latency, and
-            visceral digital aesthetics.
-          </p>
+          {/* <p className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed"> */}
+          {/*   High-impact systems engineered for zero-compromise performance, low latency, and */}
+          {/*   visceral digital aesthetics. */}
+          {/* </p> */}
         </motion.div>
 
         {/* Projects Grid */}

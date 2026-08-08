@@ -81,13 +81,13 @@ export const SkillsSection: React.FC<SkillsSectionProps> = React.memo(({ onSetCu
             </motion.h2>
           </div>
 
-          <motion.p
-            variants={itemVariants}
-            className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed"
-          >
-            Full-stack mastery spanning high-throughput server runtimes, real-time networking
-            protocols, and GPU-driven kinetic client interfaces.
-          </motion.p>
+          {/* <motion.p */}
+          {/*   variants={itemVariants} */}
+          {/*   className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed" */}
+          {/* > */}
+          {/*   Full-stack mastery spanning high-throughput server runtimes, real-time networking */}
+          {/*   protocols, and GPU-driven kinetic client interfaces. */}
+          {/* </motion.p> */}
         </motion.div>
 
         {/* Skill Matrix Grid */}

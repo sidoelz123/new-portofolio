@@ -1,33 +1,36 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import { NoiseOverlay } from './components/NoiseOverlay';
-import { CustomCursor } from './components/CustomCursor';
-import { Preloader } from './components/Preloader';
-import { HeaderNav } from './components/HeaderNav';
-import { Hero } from './components/Hero';
-import { MarqueeStrip } from './components/MarqueeStrip';
-import { ProjectsSection } from './components/ProjectsSection';
-import { SkillsSection } from './components/SkillsSection';
-import { ExperienceSection } from './components/ExperienceSection';
-import { EducationSection } from './components/EducationSection';
-import { AchievementsSection } from './components/AchievementsSection';
-import { TerminalModal } from './components/TerminalModal';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
-import { BackToTop } from './components/BackToTop';
-import { CursorState, CursorContextType } from './types';
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { NoiseOverlay } from "./components/NoiseOverlay";
+import { CustomCursor } from "./components/CustomCursor";
+import { Preloader } from "./components/Preloader";
+import { HeaderNav } from "./components/HeaderNav";
+import { Hero } from "./components/Hero";
+import { MarqueeStrip } from "./components/MarqueeStrip";
+import { ProjectsSection } from "./components/ProjectsSection";
+import { SkillsSection } from "./components/SkillsSection";
+import { ExperienceSection } from "./components/ExperienceSection";
+import { EducationSection } from "./components/EducationSection";
+import { AchievementsSection } from "./components/AchievementsSection";
+import { TerminalModal } from "./components/TerminalModal";
+import { ContactSection } from "./components/ContactSection";
+import { Footer } from "./components/Footer";
+import { BackToTop } from "./components/BackToTop";
+import { CursorState, CursorContextType } from "./types";
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [cursorState, setCursorState] = useState<CursorState>({
-    text: '',
-    context: 'DEFAULT',
+    text: "",
+    context: "DEFAULT",
     isHovered: false,
   });
 
-  const setCursor = useCallback((text: string, context: CursorContextType = 'DEFAULT', isHovered: boolean = false) => {
-    setCursorState({ text, context, isHovered });
-  }, []);
+  const setCursor = useCallback(
+    (text: string, context: CursorContextType = "DEFAULT", isHovered: boolean = false) => {
+      setCursorState({ text, context, isHovered });
+    },
+    [],
+  );
 
   const handleOpenTerminal = useCallback(() => {
     setTerminalOpen(true);
@@ -44,33 +47,35 @@ export default function App() {
   // Keyboard shortcut listener for terminal ~ or ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === '`' || e.key === '~') {
+      if (e.key === "`" || e.key === "~") {
         e.preventDefault();
         setTerminalOpen((prev) => !prev);
-      } else if (e.key === 'Escape' && terminalOpen) {
+      } else if (e.key === "Escape" && terminalOpen) {
         setTerminalOpen(false);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [terminalOpen]);
 
-  const marqueeItems1 = useMemo(() => [
-    "IHZA MAULANA ZAKIYA",
-    "FULLSTACK DEVELOPER",
-    "WEB DEVELOPER",
-    "LINUX ENTHUSIAST",
-    "PORTOFOLIO",
-    "2026",
-  ], []);
+  const marqueeItems1 = useMemo(
+    () => [
+      "IHZA MAULANA ZAKIYA",
+      "SOFTWARE ENGINEER",
+      "FULLSTACK DEVELOPER",
+      "WEB DEVELOPER",
+      "LINUX ENTHUSIAST",
+      "PORTOFOLIO",
+      "2026",
+    ],
+    [],
+  );
 
-  const marqueeItems2 = useMemo(() => [
-    "CAHTANI",
-    "HARVEST GUARD",
-    "TODO - LIST",
-    "01001001 01001008 01011010 01000001",
-  ], []);
+  const marqueeItems2 = useMemo(
+    () => ["CAHTANI", "HARVEST GUARD", "TODO - LIST", "01001001 01001008 01011010 01000001"],
+    [],
+  );
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[#70020F] selection:text-white font-sans relative overflow-x-hidden">
@@ -87,11 +92,7 @@ export default function App() {
       <HeaderNav onOpenTerminal={handleOpenTerminal} onSetCursor={setCursor} />
 
       {/* Hero Section with Staggered 3D Text Reveal */}
-      <Hero
-        isLoaded={isLoaded}
-        onSetCursor={setCursor}
-        onOpenTerminal={handleOpenTerminal}
-      />
+      <Hero isLoaded={isLoaded} onSetCursor={setCursor} onOpenTerminal={handleOpenTerminal} />
 
       {/* Marquee Strip Direction Left */}
       <MarqueeStrip
@@ -135,12 +136,7 @@ export default function App() {
       <BackToTop onSetCursor={setCursor} />
 
       {/* Interactive Terminal Modal */}
-      <TerminalModal
-        isOpen={terminalOpen}
-        onClose={handleCloseTerminal}
-        onSetCursor={setCursor}
-      />
+      <TerminalModal isOpen={terminalOpen} onClose={handleCloseTerminal} onSetCursor={setCursor} />
     </div>
   );
 }
-

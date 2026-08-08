@@ -83,15 +83,15 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = React.memo(({
             </motion.h2>
           </div>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col items-start md:items-end gap-4"
-          >
-            <p className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed md:text-right">
-              Professional track record building production-grade web systems, high-speed
-              architectures, and scalable fullstack applications.
-            </p>
-          </motion.div>
+          {/* <motion.div */}
+          {/*   variants={itemVariants} */}
+          {/*   className="flex flex-col items-start md:items-end gap-4" */}
+          {/* > */}
+          {/*   <p className="max-w-md font-mono text-xs text-neutral-400 leading-relaxed md:text-right"> */}
+          {/*     Professional track record building production-grade web systems, high-speed */}
+          {/*     architectures, and scalable fullstack applications. */}
+          {/*   </p> */}
+          {/* </motion.div> */}
         </motion.div>
 
         {/* Experience List */}

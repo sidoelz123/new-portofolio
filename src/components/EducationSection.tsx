@@ -103,7 +103,7 @@ export const EducationSection: React.FC<EducationSectionProps> = React.memo(({ o
                   {edu.degree}
                 </h3>
                 <p className="text-sm font-bold text-neutral-400 flex items-center gap-2">
-                  <span className="text-[#70020F]">di</span>
+                  <span className="text-[#70020F]">at</span>
                   <span className="text-white">{edu.institution}</span>
                 </p>
               </div>

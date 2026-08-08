@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ isLoaded, onSetCursor, onOpenTermina
   const nameMiddle = "MAULANA".split("");
   const nameLast = "ZAKIYA".split("");
 
-  const roleLetters = "FULLSTACK DEVELOPER".split("");
+  const roleLetters = "SOFTWARE ENGINEER".split("");
 
   const triggerGlitch = () => {
     setGlitchActive(true);
