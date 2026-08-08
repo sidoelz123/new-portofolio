@@ -12,15 +12,15 @@ export const PERSONAL_INFO = {
   shortName: "Ijaadev",
   handle: "ihzamaulana",
   currently: "Open To Work",
-  role: "Fullstack Developer",
-  headline: "FULLSTACK DEVELOPER",
-  document_cv: "https://drive.google.com/file/d/1RN-KQ__uwGb_F4lTZtgVdyiFlueqoUd2/view?usp=sharing",
+  role: "Software Developer",
+  headline: "Software Developer",
+  document_cv: "https://drive.google.com/file/d/1iF9B9wfvmFSpfpNU5B5jXMDFzeNwyxKD/view?usp=sharing",
   subHeadline:
     "ARCHITECTING HIGH-PERFORMANCE WEB SYSTEMS, KINETIC INTERFACES & SCALABLE INFRASTRUCTURE",
   location: "GLOBAL / REMOTE",
   status: "OPEN TO WORK",
   email: "ihzamaulanaz.77@gmail.com",
-  bio: "Creative Fullstack Developer specializing in high-performance web systems, real-time architectures, kinetic user interfaces, and robust cloud infrastructure. Bridging extreme visual craftsmanship with hardcore backend engineering.",
+  bio: "Software Engineer specializing in frontend development, with over 2 years of experience building responsive, high-performing web interfaces using React.js, Vue.js, and Next.js. Experienced in integrating REST APIs from the backend team into the user interface efficiently and in a well-structured manner. Has a working understanding of DevOps practices, including Docker and CI/CD pipelines, gained through internship experience, to support efficient deployment processes. Writes structured, maintainable code, and enjoys learning new technologies within a collaborative team environment.",
   stats: [
     { label: "YEARS EXP.", value: "02+" },
     { label: "PROJECTS LAUNCHED", value: "10+" },
@@ -36,12 +36,12 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "aether-os",
+    id: "cahtani",
     number: "01",
-    title: "Aether OS",
+    title: "Cahtani",
     subtitle: "WebGL Interactive Operating System",
-    category: "WebGL / Interactive Engine",
-    year: "2025",
+    category: " / Interactive Engine",
+    year: "2026",
     description:
       "A browser-native spatial computing OS utilizing Three.js, WebGL shaders, and real-time audio reactivity with sub-frame render loops.",
     extendedDescription:
@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
       "Spatial Quadtree Collision Engine with Dynamic Bounds",
       "Zero-Dependency Custom State Management Bus",
     ],
-    demoUrl: "https://example.com/aether-os",
+    demoUrl: "https://cahtani.vercel.app",
     githubUrl: "https://github.com/ihzamaulana/aether-os",
     imageSeed: "aether-os-sys-3d",
     accentColor: "#70020F",
@@ -164,26 +164,63 @@ export const EXPERIENCES: ExperienceItem[] = [
   {
     id: "exp-1",
     role: "Frontend Developer",
-    employment_type: "Full Time (Remote)",
+    employment_type: "Full-time (remote)",
     company: "PT Okta Prima Mulya",
     period: "May 2025 – April 2026",
-    description: [],
+    description: [
+      "Continued development of an existing e-commerce platform, covering both the customer website and back office system, using React.js, Next.js, and Tailwind CSS.",
+      "Fixed bugs and adjusted layouts to be responsive across devices (cross-browser & mobile responsive) on both sides of the application.",
+      "Integrated REST APIs from the backend team into both the customer website and back office system efficiently and in a well-structured manner.",
+      "Built reusable pages and components to speed up new feature development and maintain visual consistency across the product.",
+    ],
   },
   {
     id: "exp-2",
     role: "Frontend Web Developer",
-    employment_type: "Intern (Remote)",
+    employment_type: "Intern (remote)",
     company: "PT Bima Digital Indonesia",
     period: "January 2025 – June 2025",
-    description: [],
+    description: [
+      "Worked on real frontend web development projects as part of a certified internship program.",
+      "Applied clean code practices and modular component architecture in application development.",
+      "Collaborated within a team and presented development results to mentors and the evaluation team.",
+    ],
   },
   {
     id: "exp-3",
     role: "Project Based Intern: Frontend Developer",
-    employment_type: "Intern (Remote)",
+    employment_type: "Intern (remote)",
     company: "Core Initiative Studio X Rakamin Academy",
     period: "January 2024",
-    description: [],
+    description: [
+      "Worked on real industry-based frontend project case studies as part of a collaborative internship program.",
+      "Applied HTML, CSS, modern JavaScript, and frontend frameworks in developing web features.",
+      "Presented project results to mentors and the program evaluation team.",
+    ],
+  },
+  {
+    id: "exp-4",
+    role: "Devops Engineer",
+    employment_type: "Intern (onsite)",
+    company: "Sekawan Media",
+    period: "Agustus 2023 - Desember 2023",
+    description: [
+      "Built and configured CI/CD pipelines to automate the application's build, testing, and deployment processes.",
+      "Containerized applications using Docker to ensure consistency between development and production environments.",
+      "Assisted in monitoring application availability and performance, and supported deployment processes to the server.",
+    ],
+  },
+  {
+    id: "exp-5",
+    role: "Production Operator",
+    employment_type: "Full-time (onsite)",
+    company: "PT Suryaraya Rubberindo Industries",
+    period: "January 2019 - July 2020",
+    description: [
+      "Operated and monitored motorcycle tire curing machines safely in accordance with SOP and workplace safety (K3) standards.",
+      "Performed thorough visual quality control to identify and minimize defective (rejected) products.",
+      "Maintained a high work pace and fast production rhythm to meet the company's daily output targets.",
+    ],
   },
 ];
 
